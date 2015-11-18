@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
+__autor__='cheng'
 
 '''test a overload class
     test:
@@ -15,17 +16,19 @@ class Testforoverload(object):
         print('init...')
         super(Testforoverload, self).__init__()
         self.arg = arg
-        self.start=-1
+        self.start=0
         self.max=len(arg)
     def __iter__(self):
         print('run iter...')
         return self
     def __next__(self):
-        print('run next...')
-        if self.start > self.max:
+        print('run next...',end='')
+        if self.start >= self.max:
+            print('StopIteration is ...')
             raise StopIteration
+        result=self.arg[self.start]
         self.start +=1
-        return self.arg[start]
+        return result
     def __getitem__(self,index):
         print('run getitem...')
         return self.arg[index]
@@ -37,10 +40,14 @@ class Testforoverload(object):
         return item in self.arg
     def __index__(self):
         print('run index...')
-        return self.arg.__index__()
+        return 0
 
 if __name__ == '__main__':
     l=[1,3,4,5,6,5]
-
     tfl=Testforoverload(l)
+    for x in tfl:
+        print(x)
+    print(oct(tfl))
+    print(1 in tfl)
     print(tfl[1])
+    
