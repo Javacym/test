@@ -50,4 +50,3 @@ if __name__ == '__main__':
     print(oct(tfl))
     print(1 in tfl)
     print(tfl[1])
-    
