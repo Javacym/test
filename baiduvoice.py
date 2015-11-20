@@ -5,6 +5,7 @@ import urllib.parse
 import json
 import base64
 #语言处理地址
+googleurl='http://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=zh-CN&maxresults=1'
 url='http://apis.baidu.com/apistore/vop/baiduvopjson'
 apikey='743748bfd52d489eac8fbe84aad1619d'
 data={}
